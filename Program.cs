@@ -23,9 +23,16 @@ namespace pythonnet
 	            PyDict locals = new PyDict();
 	            locals.SetItem("a", new PyInt(10));
 	
-	            int b = (int)PythonEngine.Eval("a * 2 + 1", null, locals.Handle)
-	                .AsManagedObject(typeof(int));
-	            Console.WriteLine(b);
+	            if (false)
+	            {
+		            int b = (int)PythonEngine.Eval("a * 2 + 1", null, locals.Handle)
+		                .AsManagedObject(typeof(int));
+		            Console.WriteLine(b);
+	            }
+	            else
+	            {
+	            	PythonEngine.Exec("print(a * 2 + 1)", null, locals.Handle);
+	            }
 		    }			
 			
 			
